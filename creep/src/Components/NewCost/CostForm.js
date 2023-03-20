@@ -6,44 +6,30 @@ const CostForm = (props) => {
     const [inputSum, SetInputSum] = useState('');
     const [inputDate, SetInputDate] = useState('');
 
-    //const [userInput, setUserInput] = useState({
-    //    name: '',
-    //    sum: '',
-    //    date: '',
-    //    })
+
 
     const nameChangeHandler = (event) => {
 
         SetInputName(event.target.value);
-            //setUserInput({
-            //    ...userInput,
-            //    name: event.target.value
-            //    })
+
     }
 
     const sumChangeHandler = (event) => {
         SetInputSum(event.target.value);
-        //setUserInput({
-        //    ...userInput,
-        //    sum: event.target.value
-        //})
+
     }
 
     const dateChangeHandler = (event) => {
     SetInputDate(event.target.value);
-        //setUserInput({
-        //    ...userInput,
-        //    date: event.target.value
-        //})
+
     }
 
     const submitHandler = (event) => {
         event.preventDefault();
         const costData = {
             name: inputName,
-            sum: inputSum,
+            amount: inputSum,
             date: new Date(inputDate)
-           
         }
         props.onSaveCostData(costData);
         SetInputDate('');
@@ -59,8 +45,8 @@ const CostForm = (props) => {
             <div className="new-cost__controls">
                 <div className="new-cost__controls">
                     <label>Название</label>
-                    
-                    <input type='text' 
+
+                    <input type='text'
                         value={inputName}
                         onChange={nameChangeHandler}
                     />
@@ -70,7 +56,7 @@ const CostForm = (props) => {
                     <input type='number' min='0.01' step='0.01'
                         value={inputSum}
                         onChange={sumChangeHandler}
-                        
+
                     />
                 </div>
                 <div className="new-cost__controls">
@@ -81,7 +67,10 @@ const CostForm = (props) => {
                     />
                 </div>
                 <div className="new-cost__actions">
-                    <input type='submit' min='2019' step='0.01' />
+                    <button type="submit">New sales</button>
+                    <button type="button" onClick={props.onCancel}>
+                        Cancel
+                    </button>
                 </div>
             </div>
         </form>

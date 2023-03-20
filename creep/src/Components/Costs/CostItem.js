@@ -18,7 +18,7 @@ const CostItem = (props) => {
 
 
     return (
-
+        <li>
         < Card className="cost-item">
 
             <CostDate date={props.date} />
@@ -29,9 +29,9 @@ const CostItem = (props) => {
                 <h2>{props.name}</h2>
             </div>
 
-            <button onClick={changeDescriptionHandler }>Change name</button>
+            </Card >
 
-        </Card >
+        </li>
     );
 };
 export default CostItem;
